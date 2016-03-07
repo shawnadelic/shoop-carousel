@@ -16,6 +16,7 @@ from shoop.xtheme.resources import add_resource
 
 from shoop_carousel.models import Carousel
 from shoop.xtheme.plugins.forms import GenericPluginForm
+from shoop.xtheme.plugins.widgets import XThemeModelChoiceField
 
 
 class CarouselConfigForm(GenericPluginForm):
@@ -23,7 +24,7 @@ class CarouselConfigForm(GenericPluginForm):
         super(CarouselConfigForm, self).__init__(**kwargs)
 
     def populate(self):
-        self.fields["carousel"] = forms.ModelChoiceField(
+        self.fields["carousel"] = XThemeModelChoiceField(
             label=_("Carousel"),
             queryset=Carousel.objects.all(),
             required=False,
